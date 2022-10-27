@@ -8,8 +8,10 @@ export default function drawSquare(texObj) {
     // Send normal matrix to the shader.
     mat3.normalFromMat4(normalMatrix, modelview);
     gl.uniformMatrix3fv(uNormalMatrixLoc, false, normalMatrix);
-    // bind the appropriate texture object
-    gl.bindTexture(gl.TEXTURE_2D, texObj);
-    // Draw the 2-by-2 square (originally in the xy-plane)
-    gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+    for (let i = 0; i < 6; i++) {
+      // bind the appropriate texture object
+      gl.bindTexture(gl.TEXTURE_2D, texObj[i]);
+      // Draw the 2-by-2 square (originally in the xy-plane)
+      gl.drawArrays(gl.TRIANGLE_FAN, i * 4, 4);
+    }
   }

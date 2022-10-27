@@ -15,6 +15,5 @@ export default function draw() {
 
     // Save the viewing transformation.
     let saveMV = mat4.clone(modelview);
-
-    drawSquare(textureObjects[0]); // front face
+    drawSquare(textureObjects); // front face
 }
